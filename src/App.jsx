@@ -7,6 +7,7 @@ import { TODOS } from './data/data';
 function App() {
 
   const [todos, setTodos] = useState(TODOS);
+  const [todoInput, setTodoInput] = useState("")
 
   console.log(todos);
   
@@ -14,6 +15,15 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e);
+ 
+    const newTodo = 
+    {
+      id:(todos.length + 1),
+      body:todoInput
+    }
+
+    setTodos([...todos, newTodo]);
+    setTodoInput("");
     
   }
 
@@ -21,7 +31,8 @@ function App() {
   return (
    <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="todo" />
+        <input type="text" name="todo"value={todoInput} onChange={e =>{ setTodoInput(e.target.value);
+        }}/>
         <button type='submit'>Add Todo</button>
       </form>
 
