@@ -32,7 +32,7 @@ function App() {
    <div>
       <form onSubmit={handleSubmit}>
         <input type="text" name="todo"value={todoInput} onChange={e =>{ setTodoInput(e.target.value);
-        }}/>
+        }}required/>
         <button type='submit'>Add Todo</button>
       </form>
 
